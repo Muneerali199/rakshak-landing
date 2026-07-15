@@ -1,6 +1,6 @@
 import { neon } from "@neondatabase/serverless"
 
-const DATABASE_URL = process.env.DATABASE_URL!
+const DATABASE_URL = process.env.DATABASE_URL || "postgresql://neondb_owner:npg_sJ4njfWo9uHG@ep-aged-star-atzohpvs-pooler.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require"
 
 export async function POST(req: Request) {
   try {
@@ -8,10 +8,6 @@ export async function POST(req: Request) {
 
     if (!email || typeof email !== "string") {
       return Response.json({ error: "Email required" }, { status: 400 })
-    }
-
-    if (!DATABASE_URL) {
-      return Response.json({ error: "Server not configured" }, { status: 500 })
     }
 
     const sql = neon(DATABASE_URL)
