@@ -1,5 +1,7 @@
 import { neon } from "@neondatabase/serverless"
 
+const DATABASE_URL = process.env.DATABASE_URL!
+
 export async function POST(req: Request) {
   try {
     const { email } = await req.json()
@@ -8,7 +10,11 @@ export async function POST(req: Request) {
       return Response.json({ error: "Email required" }, { status: 400 })
     }
 
-    const sql = neon(process.env.DATABASE_URL!)
+    if (!DATABASE_URL) {
+      return Response.json({ error: "Server not configured" }, { status: 500 })
+    }
+
+    const sql = neon(DATABASE_URL)
     await sql`INSERT INTO waitlist (email) VALUES (${email})`
 
     return Response.json({ success: true })
