@@ -42,7 +42,7 @@ export default function InstallCTA() {
 
   return (
     <section id="install" className="relative overflow-hidden bg-[#111] px-4 py-32 md:px-6">
-      <GridPattern gridSize={80} />
+      <GridPattern gridSize={80} dark />
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-[#00e5ff]/20 bg-[#00e5ff]/5 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.15em] text-[#00e5ff]">
           <span className="h-1.5 w-1.5 rounded-full bg-[#00e5ff] animate-pulse" />

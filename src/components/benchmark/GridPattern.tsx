@@ -6,12 +6,14 @@ type GridPatternProps = {
   className?: string
   gridSize?: number
   strokeWidth?: number
+  dark?: boolean
 }
 
 export default function GridPattern({
   className,
   gridSize = 120,
   strokeWidth = 1.5,
+  dark = false,
 }: GridPatternProps) {
   const size = Math.ceil(1000 / gridSize) * gridSize
   const patternId = `grid-${gridSize}-${strokeWidth}`
@@ -58,7 +60,7 @@ export default function GridPattern({
           <path
             d={`M ${gridSize} 0 L 0 0 0 ${gridSize}`}
             fill="none"
-            stroke="#e5e5e5"
+            stroke={dark ? "#222" : "#e5e5e5"}
             strokeWidth={strokeWidth}
           />
         </pattern>

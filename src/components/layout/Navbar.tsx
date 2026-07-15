@@ -6,7 +6,7 @@ const links = [
   { href: "#features", label: "Features" },
   { href: "/docs", label: "Docs" },
   { href: "/benchmark", label: "Benchmarks" },
-  { href: "/login", label: "Login" },
+  { href: "/login", label: "Waitlist" },
 ]
 
 export default function Navbar() {
